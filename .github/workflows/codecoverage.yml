@@ -22,5 +22,5 @@ jobs:
       with:
           xcode-version: "13.2.1"
     - name: Gather code coverage
-      run: xcrun llvm-cov export -format="lcov" .build/debug/Package3Tests.xctest/Contents/MacOS/Package3Tests -instr-profile .build/debug/codecov/default.profdata > coverage_report.lcov
+      run: xcrun llvm-cov export -format="lcov" .build/debug/Package3PackageTests.products.xctest/Contents/MacOS/Package3PackageTests.product -instr-profile .build/debug/codecov/default.profdata > coverage_report.lcov
 
