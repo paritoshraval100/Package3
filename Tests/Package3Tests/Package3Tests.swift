@@ -8,4 +8,8 @@
             // results.
             XCTAssertEqual(Package3().text, "Hello, World!")
         }
+        
+        func testAddition() {
+            XCTAssertEqual(Package3.addition(first: 2, second: 3), 5)
+        }
     }
