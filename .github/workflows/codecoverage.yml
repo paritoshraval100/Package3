@@ -36,6 +36,7 @@ jobs:
       uses: maxep/spm-lcov-action@0.3.0
       with:
           output-file: ./codecov.txt
+          file-format: "text"
     - name: Upload html test report
       uses: actions/upload-artifact@v2
       with:
