@@ -2,9 +2,9 @@ name: Build Package
 
 on:
   push:
-    branches: [ main, test ]
+    branches: [ test ]
   pull_request:
-    branches: [ main, test ]
+    branches: [ test ]
 
 jobs:
   build:
