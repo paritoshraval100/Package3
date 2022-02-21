@@ -22,10 +22,10 @@ jobs:
       with:
           output-file: ./coverage/lcov.text
     - name: Upload html test report
-          uses: actions/upload-artifact@v2
-          with:
-            name: CoverageReports
-            path: ./coverage/lcov.text
+      uses: actions/upload-artifact@v2
+      with:
+          name: CoverageReports
+          path: ./coverage/lcov.text
 
 
 
