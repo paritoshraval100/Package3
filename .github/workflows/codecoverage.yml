@@ -21,8 +21,13 @@ jobs:
       uses: maxep/spm-lcov-action@0.3.0
       with:
           output-file: ./coverage/lcov.info
-          genhtml -o coverage ./coverage/lcov.info
-          open ./coverage/index.html
+    - name: Copy file
+      run: genhtml -o coverage ./coverage/lcov.info
+    - name: open file
+      run: open ./coverage/index.html
+
+
+          
 
 
 #    - name: Setup Xcode
