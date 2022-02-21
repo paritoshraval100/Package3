@@ -7,16 +7,16 @@ on:
     branches: [ test ]
 
 jobs:
-  build:
-    runs-on: macOS-latest
-
-    steps:
-    - uses: actions/checkout@v2
-        
-    - name: Build
-      run: swift build -v
-    - name: Run tests
-      run: swift test --enable-code-coverage -v
+#  build:
+#    runs-on: macOS-latest
+#
+#    steps:
+#    - uses: actions/checkout@v2
+#        
+#    - name: Build
+#      run: swift build -v
+#    - name: Run tests
+#      run: swift test --enable-code-coverage -v
   codecov:
     container:
       image: swift:5.3
