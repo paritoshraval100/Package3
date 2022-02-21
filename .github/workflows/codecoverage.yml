@@ -25,6 +25,13 @@ jobs:
     - uses: actions/checkout@v2
     - run: swift test --enable-test-discovery --enable-code-coverage
     - uses: mattpolzin/swift-codecov-action@0.6.0
+    - name: Upload html test report
+      uses: actions/upload-artifact@v2
+      with:
+          name: CoverageReports
+          path: ./codecov.txt
+    #    - name: Gather code coverage
+#      run: xcrun llvm-cov export -format="lcov" .build/debug/Package3PackageTests.products.xctest/Contents/MacOS/Package3PackageTests.product -instr-profile .build/debug/codecov/default.profdata > coverage_report.lcov
 #    - name: Test coverage
 #      uses: maxep/spm-lcov-action@0.3.0
 #      with:
