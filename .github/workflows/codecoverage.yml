@@ -7,42 +7,40 @@ on:
     branches: [ test ]
 
 jobs:
-#  build:
-#    runs-on: macOS-latest
-#
-#    steps:
-#    - uses: actions/checkout@v2
-#
-#    - name: Build
-#      run: swift build -v
-#    - name: Run tests
-#      run: swift test --enable-code-coverage -v
-  codecov:
-    container:
-      image: swift:5.3
-    runs-on: ubuntu-latest
+  build:
+    runs-on: macOS-latest
+
     steps:
     - uses: actions/checkout@v2
-    - run: swift test --enable-test-discovery --enable-code-coverage
-    - uses: mattpolzin/swift-codecov-action@0.6.0
+
+    - name: Build
+      run: swift build -v
+    - name: Run tests
+      run: swift test --enable-code-coverage -v
+#  codecov:
+#    container:
+#      image: swift:5.3
+#    runs-on: ubuntu-latest
+#    steps:
+#    - uses: actions/checkout@v2
+#    - run: swift test --enable-test-discovery --enable-code-coverage
+#    - uses: mattpolzin/swift-codecov-action@0.6.0
+#      with:
+#        MINIMUM_COVERAGE: 5
+#    - name: Upload html test report
+#      uses: actions/upload-artifact@v2
+#      with:
+#          name: CoverageReports
+#          path: ./codecov.txt
+    - name: Test coverage
+      uses: maxep/spm-lcov-action@0.3.0
       with:
-        MINIMUM_COVERAGE: 5
+          output-file: ./codecov.txt
     - name: Upload html test report
       uses: actions/upload-artifact@v2
       with:
           name: CoverageReports
           path: ./codecov.txt
-    #    - name: Gather code coverage
-#      run: xcrun llvm-cov export -format="lcov" .build/debug/Package3PackageTests.products.xctest/Contents/MacOS/Package3PackageTests.product -instr-profile .build/debug/codecov/default.profdata > coverage_report.lcov
-#    - name: Test coverage
-#      uses: maxep/spm-lcov-action@0.3.0
-#      with:
-#          output-file: ./coverage/lcov.info
-#    - name: Upload html test report
-#      uses: actions/upload-artifact@v2
-#      with:
-#          name: CoverageReports
-#          path: ./coverage/lcov.info
 
 
 
