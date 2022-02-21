@@ -20,12 +20,12 @@ jobs:
     - name: Test coverage
       uses: maxep/spm-lcov-action@0.3.0
       with:
-          output-file: ./coverage/lcov.txt
+          output-file: ./coverage/lcov.JSON
     - name: Upload html test report
       uses: actions/upload-artifact@v2
       with:
           name: CoverageReports
-          path: ./coverage/lcov.txt
+          path: ./coverage/lcov.JSON
 
 
 
